@@ -13,7 +13,7 @@ class AppKernel extends Kernel
     {
         $bundles = [];
 
-        if (in_array($this->getEnvironment(), ['test'])) {
+        if (in_array($this->getEnvironment(), ['test', 'test_no_permissions'])) {
             $bundles[] = new FrameworkBundle();
             $bundles[] = new AuthzedBundle();
         }

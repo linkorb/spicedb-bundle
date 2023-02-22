@@ -4,6 +4,7 @@ namespace LinkORB\AuthzedBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
+
 final class Configuration implements ConfigurationInterface
 {
     /**
@@ -25,6 +26,15 @@ final class Configuration implements ConfigurationInterface
                     ->info('Pass your SpiceDB API key here')
                     ->example('somerandomkeyhere')
                     ->isRequired()
+                ->end()
+                ->arrayNode('permissions')
+                    ->useAttributeAsKey('objectType')
+                        ->arrayPrototype()
+                            ->requiresAtLeastOneElement()
+                            ->beforeNormalization()->castToArray()->end()
+                            ->scalarPrototype()->cannotBeEmpty()
+                        ->end()
+                    ->end()
                 ->end()
             ->end();
 
