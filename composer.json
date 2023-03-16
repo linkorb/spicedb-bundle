@@ -1,6 +1,6 @@
 {
-    "name": "linkorb/spicedb-php-bundle",
-    "description": "SpiceDB connector for Symfony apps",
+    "name": "linkorb/spicedb-bundle",
+    "description": "SpiceDB bundle for Symfony apps",
     "license": "MIT",
     "type": "symfony-bundle",
     "autoload": {
