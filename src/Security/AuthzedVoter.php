@@ -49,7 +49,8 @@ class AuthzedVoter extends Voter
                     $subject->getConsistency(),
                     $subject->getObject(),
                     $attribute,
-                    $subject->getSubject()
+                    $subject->getSubject(),
+                    $subject->getCaveatContext()
                 )
             );
         } catch (SpiceDBServerException $e) {

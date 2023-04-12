@@ -4,6 +4,7 @@ namespace LinkORB\AuthzedBundle\Tests;
 
 use LinkORB\Authzed\ConnectorInterface;
 use LinkORB\Authzed\Dto\ObjectReference;
+use LinkORB\Authzed\Dto\Request\PermissionCheck as PermissionCheckRequest;
 use LinkORB\Authzed\Dto\Response\PermissionCheck;
 use LinkORB\Authzed\Dto\SubjectReference;
 use LinkORB\Authzed\SpiceDB;
@@ -105,6 +106,41 @@ class BundleTest extends KernelTestCase
                 new ObjectReference('user', '123')
             ),
             ['view']
+        );
+    }
+
+    public function testVoterCaveat()
+    {
+        static::bootKernel();
+
+        $container = static::getContainer();
+
+        $subject = new AuthzedSubject(
+            new SubjectReference(new ObjectReference('user_data', '456')),
+            new ObjectReference('user', '123'),
+            null,
+            ['second_parameter' => 'hello world']
+        );
+
+        $client = $this->createMock(ConnectorInterface::class);
+        $client->expects($this->once())
+            ->method('checkPermission')
+            ->with(new PermissionCheckRequest(
+                $subject->getConsistency(),
+                $subject->getObject(),
+                'view',
+                $subject->getSubject(),
+                $subject->getCaveatContext()
+            ))
+            ->willReturn(new PermissionCheck(null, PermissionCheck::PERMISSIONSHIP_NO_PERMISSION));
+        $container->set(SpiceDB::class, $client);
+
+        $voter = $container->get(AuthzedVoter::class);
+        $this->assertInstanceOf(AuthzedVoter::class, $voter);
+
+        $this->assertEquals(
+            VoterInterface::ACCESS_DENIED,
+            $voter->vote(new NullToken(), $subject, ['view'])
         );
     }
 }
