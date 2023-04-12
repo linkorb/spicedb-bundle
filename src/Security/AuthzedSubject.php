@@ -11,12 +11,19 @@ class AuthzedSubject
     private SubjectReference $subject;
     private ObjectReference $object;
     private ?Consistency $consistency;
+    private ?array $caveatContext;
 
-    public function __construct(SubjectReference $subject, ObjectReference $object, Consistency $consistency = null)
+    public function __construct(
+        SubjectReference $subject,
+        ObjectReference  $object,
+        Consistency      $consistency = null,
+        array            $caveatContext = null
+    )
     {
-        $this->subject     = $subject;
-        $this->object      = $object;
-        $this->consistency = $consistency;
+        $this->subject       = $subject;
+        $this->object        = $object;
+        $this->consistency   = $consistency;
+        $this->caveatContext = $caveatContext;
     }
 
     public function getSubject(): SubjectReference
@@ -32,5 +39,10 @@ class AuthzedSubject
     public function getConsistency(): ?Consistency
     {
         return $this->consistency;
+    }
+
+    public function getCaveatContext(): ?array
+    {
+        return $this->caveatContext;
     }
 }
