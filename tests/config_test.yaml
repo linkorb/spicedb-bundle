@@ -1,0 +1,16 @@
+framework:
+  secret: "secretkey"
+  test: ~
+
+authzed:
+  uri: 'http://spicedb:8443'
+  key: 'somerandomkeyhere'
+  permissions:
+    user_data:
+      - view
+      - edit
+      - download
+    message:
+      - send
+      - create
+      - encryp
