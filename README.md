@@ -2,37 +2,49 @@
 
 [![Docs](https://img.shields.io/badge/docs-authzed.com-%234B4B6C "Authzed Documentation")](https://docs.authzed.com)
 
-This repository is integration of [PHP library](https://github.com/linkorb/spicedb-php) into Symfony app.
+`linkorb/spicedb-bundle` integrates of [`linkorb/spicedb-bundle`](https://github.com/linkorb/spicedb-php) into Symfony applications.
 
-[SpiceDB] is a database system for managing security-critical permissions checking.
+[SpiceDB](https://github.com/authzed/spicedb) is a database system for managing security-critical access control (permissions).
 
-Check parent library README for more details
+Check out the [SpiceDB's README](https://github.com/authzed/spicedb#readme) for more information.
 
-[SpiceDB]: https://github.com/authzed/spicedb
-
-## Basic Usage
-
-### Installation
+## Installation
 
 ```shell
-composer require linkorb/spicedb-php-bundle
+composer require linkorb/spicedb-bundle
 ```
-After that you need to specify SpiceDB URI & API in your config.yaml like that:
+
+## Setup
+
+Specify SpiceDB's `URI` and `API` in your ***config.yaml***  as shown in the following example.
+   
 ```yaml
 authzed:
   uri: 'http://spicedb:8443'
   key: 'somerandomkeyhere'
 ```
 
-### Getting client
+## Getting client
 
-In order to use SpiceDB client in your app simply call:
+Use a SpiceDB client in your application by calling `$container->get()` method with `LinkORB\Authzed\SpiceDB::class` or `LinkORB\Authzed\ConnectorInterface::class` as its argument as shown below.
+
 ```php
 $container->get(LinkORB\Authzed\SpiceDB::class)
 ```
-or:
+
+**OR**
+
 ```php
 $container->get(LinkORB\Authzed\ConnectorInterface::class)
 ```
 
-You can also pass it in services (or using autowiring). For more information on SpiceDB connector calls refer to [library repo](https://github.com/linkorb/spicedb-php).
+> [!NOTE]
+> You can also register a SpiceDB client in a Symfony application by registering it in the ***config/services.yaml***  (or using [autowiring](https://symfony.com/doc/current/service_container/autowiring.html)).
+
+> [!TIP]
+> For more information on SpiceDB connector calls, please refer to [`linkorb/spicedb-php`](https://github.com/linkorb/spicedb-php).
+
+## Brought to you by the LinkORB Engineering team
+
+<img src="http://www.linkorb.com/d/meta/tier1/images/linkorbengineering-logo.png" width="200px" /><br />
+Check out our other projects at [engineering.linkorb.com](https://engineering.linkorb.com).
