@@ -1,0 +1,7 @@
+parameters:
+services:
+  LinkORB\Authzed\SpiceDB:
+    autowire: true
+    public: true
+
+  LinkORB\Authzed\ConnectorInterface: '@LinkORB\Authzed\SpiceDB'
