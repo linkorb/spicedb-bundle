@@ -11,7 +11,7 @@
     <php>
         <ini name="display_errors" value="1" />
         <ini name="error_reporting" value="-1" />
-        <server name="KERNEL_CLASS" value="LinkORB\AuthzedBundle\Tests\AppKernel" />
+        <server name="KERNEL_CLASS" value="LinkORB\Bundle\SpicedbBundle\Tests\AppKernel" />
     </php>
 
     <testsuites>

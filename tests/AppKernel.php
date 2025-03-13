@@ -1,8 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace LinkORB\AuthzedBundle\Tests;
+namespace LinkORB\Bundle\SpicedbBundle\Tests;
 
-use LinkORB\AuthzedBundle\AuthzedBundle;
+use LinkORB\Bundle\SpicedbBundle\AuthzedBundle;
+use LinkORB\Bundle\SpicedbBundle\LinkORBSpicedbBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpKernel\Kernel;
@@ -15,7 +16,7 @@ class AppKernel extends Kernel
 
         if (in_array($this->getEnvironment(), ['test', 'test_no_permissions'])) {
             $bundles[] = new FrameworkBundle();
-            $bundles[] = new AuthzedBundle();
+            $bundles[] = new LinkORBSpicedbBundle();
         }
 
         return $bundles;
