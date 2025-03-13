@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace LinkORB\AuthzedBundle\Tests;
+namespace LinkORB\Bundle\SpicedbBundle\Tests;
 
 use LinkORB\Authzed\ConnectorInterface;
 use LinkORB\Authzed\Dto\ObjectReference;
@@ -8,8 +8,8 @@ use LinkORB\Authzed\Dto\Request\PermissionCheck as PermissionCheckRequest;
 use LinkORB\Authzed\Dto\Response\PermissionCheck;
 use LinkORB\Authzed\Dto\SubjectReference;
 use LinkORB\Authzed\SpiceDB;
-use LinkORB\AuthzedBundle\Security\AuthzedSubject;
-use LinkORB\AuthzedBundle\Security\AuthzedVoter;
+use LinkORB\Bundle\SpicedbBundle\Security\AuthzedSubject;
+use LinkORB\Bundle\SpicedbBundle\Security\AuthzedVoter;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 use Symfony\Component\HttpClient\Exception\TransportException;

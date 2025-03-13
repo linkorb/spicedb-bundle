@@ -1,7 +1,10 @@
-parameters:
 services:
-  LinkORB\Authzed\SpiceDB:
+  _defaults:
     autowire: true
-    public: true
+    autoconfigure: true
+    public: false
+
+  LinkORB\Bundle\SpicedbBundle\:
+    resource: '../src/*'
 
   LinkORB\Authzed\ConnectorInterface: '@LinkORB\Authzed\SpiceDB'

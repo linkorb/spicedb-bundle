@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace LinkORB\AuthzedBundle\Security;
+namespace LinkORB\Bundle\SpicedbBundle\Security;
 
 use LinkORB\Authzed\ConnectorInterface;
 use LinkORB\Authzed\Dto\PermissionUpdate;

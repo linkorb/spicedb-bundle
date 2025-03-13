@@ -5,12 +5,12 @@
     "type": "symfony-bundle",
     "autoload": {
         "psr-4": {
-            "LinkORB\\AuthzedBundle\\": "src"
+            "LinkORB\\Bundle\\SpicedbBundle\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "LinkORB\\AuthzedBundle\\Tests\\": "tests/"
+            "LinkORB\\Bundle\\SpicedbBundle\\Tests\\": "tests/"
         }
     },
     "authors": [

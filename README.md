@@ -1,3 +1,7 @@
+> [!WARNING]
+> This is a read-only repository used to release the subtree. Any issues and pull requests should be forwarded to the
+> upstream Nebula repository.
+
 # Authzed Symfony Bundle
 
 [![Docs](https://img.shields.io/badge/docs-authzed.com-%234B4B6C "Authzed Documentation")](https://docs.authzed.com)
@@ -15,7 +19,7 @@ Check parent library README for more details
 ### Installation
 
 ```shell
-composer require linkorb/spicedb-php-bundle
+composer require linkorb/spicedb-bundle
 ```
 After that you need to specify SpiceDB URI & API in your config.yaml like that:
 ```yaml
