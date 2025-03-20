@@ -21,11 +21,10 @@ Check parent library README for more details
 ```shell
 composer require linkorb/spicedb-bundle
 ```
-After that you need to specify SpiceDB URI & API in your config.yaml like that:
-```yaml
-authzed:
-  uri: 'http://spicedb:8443'
-  key: 'somerandomkeyhere'
+After that you need to specify SpiceDB URI & API env variables:
+```
+SPICEDB_URI='http://spicedb:8443'
+SPICEDB_KEY='somerandomkeyhere'
 ```
 
 ### Getting client

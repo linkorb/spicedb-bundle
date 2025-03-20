@@ -7,4 +7,20 @@ services:
   LinkORB\Bundle\SpicedbBundle\:
     resource: '../src/*'
 
+  LinkORB\Authzed\SpiceDB:
+    autowire: true
+    public: true
+    arguments:
+      $baseUri: '%env(SPICEDB_URI)%'
+      $apiKey: '%env(SPICEDB_KEY)%'
+
   LinkORB\Authzed\ConnectorInterface: '@LinkORB\Authzed\SpiceDB'
+
+  LinkORB\Bundle\SpicedbBundle\Security\AuthzedVoter:
+    autowire: true
+    public: true
+    arguments:
+      $permissions:
+        uri: '%env(SPICEDB_URI)%'
+        key: '%env(SPICEDB_KEY)%'
+
