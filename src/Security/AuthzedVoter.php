@@ -11,13 +11,11 @@ use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 
 class AuthzedVoter extends Voter
 {
-    private ConnectorInterface $connector;
-    private array $permissions;
+    private readonly ConnectorInterface $connector;
 
-    public function __construct(ConnectorInterface $connector, array $permissions)
+    public function __construct(ConnectorInterface $connector, private array $permissions)
     {
         $this->connector = $connector;
-        $this->permissions = $permissions;
     }
 
     /**
@@ -53,7 +51,7 @@ class AuthzedVoter extends Voter
                     $subject->getCaveatContext()
                 )
             );
-        } catch (SpiceDBServerException $e) {
+        } catch (SpiceDBServerException) {
             return false;
         }
 

@@ -8,22 +8,18 @@ use LinkORB\Authzed\Dto\SubjectReference;
 
 class AuthzedSubject
 {
-    private SubjectReference $subject;
-    private ObjectReference $object;
-    private ?Consistency $consistency;
-    private ?array $caveatContext;
+    private readonly SubjectReference $subject;
+    private readonly ObjectReference $object;
 
     public function __construct(
         SubjectReference $subject,
         ObjectReference  $object,
-        Consistency      $consistency = null,
-        array            $caveatContext = null
+        private readonly ?Consistency      $consistency = null,
+        private readonly ?array            $caveatContext = null
     )
     {
         $this->subject       = $subject;
         $this->object        = $object;
-        $this->consistency   = $consistency;
-        $this->caveatContext = $caveatContext;
     }
 
     public function getSubject(): SubjectReference
