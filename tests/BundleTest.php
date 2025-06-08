@@ -18,7 +18,7 @@ use Symfony\Component\Security\Core\Authorization\Voter\VoterInterface;
 
 class BundleTest extends KernelTestCase
 {
-    public function testBundle()
+    public function testBundle(): void
     {
         static::bootKernel();
 
@@ -28,7 +28,7 @@ class BundleTest extends KernelTestCase
         $this->assertInstanceOf(SpiceDB::class, $container->get(ConnectorInterface::class));
     }
 
-    public function testBundleNoPermissions()
+    public function testBundleNoPermissions(): void
     {
         static::bootKernel(['environment' => 'test_no_permissions']);
 
@@ -41,7 +41,7 @@ class BundleTest extends KernelTestCase
         $container->get(AuthzedVoter::class);
     }
 
-    public function testVoter()
+    public function testVoter(): void
     {
         static::bootKernel();
 
@@ -69,7 +69,7 @@ class BundleTest extends KernelTestCase
         );
     }
 
-    public function testVoterNotSupports()
+    public function testVoterNotSupports(): void
     {
         static::bootKernel();
 
@@ -89,7 +89,7 @@ class BundleTest extends KernelTestCase
         );
     }
 
-    public function testVoterException()
+    public function testVoterException(): void
     {
         static::bootKernel();
 
@@ -109,7 +109,7 @@ class BundleTest extends KernelTestCase
         );
     }
 
-    public function testVoterCaveat()
+    public function testVoterCaveat(): void
     {
         static::bootKernel();
 
